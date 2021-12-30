@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block slider %}
+{% endblock slider %}
+
+{% block content %}
+    <div class="post">
+        <p class="date-text">{{ post.publication_date|date:"Y-m-d"}}</p>
+        {% if post.main_photo %}
+            <img src="{{ post.main_photo.url }}" width='200' alt="" />
+        {% endif %}
+        <details>
+            <summary>
+                {{ post.title }} - (
+                {% for category in post.category.all %}
+                    #{{ category }}
+                {% endfor %})
+            </summary>
+            <p>{{ post.main_text }}</p>
+        </details>
+        <div class="">
+            <hr>
+            {% for comment in post.comment_set.all %}
+            <p><i>Пользователь: </i>{{ comment.name }}</p>
+            <p><i>Комментарий: </i>{{ comment.text }}</p>
+            <hr>
+            {% endfor %}
+            <form action="{% url 'add_comment' post.id %}" method="post" class="">
+            {% csrf_token %}
+                <div class="">
+                    <label for="postcomment" class="">
+                        Напиши комментарий:
+                    </label>
+                    <textarea name="text" id="postcomment" cols="30" rows="1"></textarea>
+                </div>
+                <div class="">
+                    <label for="commentusername" class="">
+                        Имя:
+                    </label>
+                    <input type="text" class="" name="name" id="commentusername">
+                </div>
+                <div class="">
+                    <label for="useremail" class="">
+                        "Email:
+                    </label>
+                    <input type="text" class="" name="email" id="useremail">
+                </div>
+                <button type="submit" class="">
+                    Отправить
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

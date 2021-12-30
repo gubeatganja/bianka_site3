@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+    <head>
+        <title></title>
+    </head>
+
+    <body>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                Order by
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="?order=name">Name (a-z)</a></li>
+                <li><a href="?order=-name">Name (z-a)</a></li>
+                <li><a href="?order=price">Price</a></li>
+                <li><a href="?order=date">Date</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

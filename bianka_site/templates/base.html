@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+{% load paginate_extras %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'bianka_site/css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'bianka_site/css/owl.theme.default.min.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+        <link rel="stylesheet" href="{% static 'bianka_site/css/slider.css' %}">
+		<link rel="stylesheet" href="{% static 'bianka_site/css/style.css' %}">
+        <title>
+            {% block title %}
+                Title
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+    <!-- content -->
+		<div class="row_head container">
+			<div class="avatar">
+				<a href="{% url 'home' %}">
+					<img class="rounded" src="{% static 'bianka_site/images/avatar03.jpg' %}" height=300 alt="it's me"/>
+				</a>
+			</div>
+			<div class="header-text">
+				<h1>Bianka Chumak</h1>
+				<h2>Личный дневник и большой фотоальбом</h2><br>
+				<p>Бьянка родилась 8 ноября 2019 года в 11:55 во Вроцлаве (Польша)</p>
+			</div>
+		</div>
+    	{% block slider %}
+		{% include 'slider.html' %}
+		{% endblock slider %}
+		<div class="container">
+			{% include 'sidebar.html' %}
+			<div class="posts_block">
+				{% block content %}
+					{% for post in page_obj %}
+						<div class="post">
+							<a href="{{ post.get_absolute_url }}"><p id="{{ post.id }}" class="date-text">
+								{{ post.publication_date|date:"Y-m-d"}}</p></a>
+							{% if post.main_photo %}
+								<img src="{{ post.main_photo.url }}" width='200' alt="" />
+							{% endif %}
+							<p>{{ post.title }} - (
+									{% for category in post.category.all %}
+										#{{ category }}
+									{% endfor %})</p>
+							<details>
+								<summary>{{ post.intro_text }}</summary>
+								<p>{{post.main_text}}</p>
+							</details>
+							<div class="">
+								<form action="{% url 'add_comment' post.id %}" method="post" class="">
+									{% csrf_token %}
+									<div class="">
+										<label for="postcomment" class="">
+											Напиши комментарий:
+										</label>
+										<textarea name="text" id="postcomment" cols="30" rows="1"></textarea>
+									</div>
+									<div class="">
+										<label for="commentusername" class="">
+											Имя:
+										</label>
+										<input type="text" class="" name="name" id="commentusername">
+									</div>
+									<div class="">
+										<label for="useremail" class="">
+											"Email:
+										</label>
+										<input type="text" class="" name="e-mail" id="useremail">
+									</div>
+									<button type="submit" class="">
+										Отправить
+									</button>
+								</form>
+							</div>
+						</div>
+					{% endfor %}
+				{% endblock content %}
+			</div>
+		<!-- pagination -->
+			{% if page_obj.paginator.num_pages > 1 %}
+				<div class="pagination">
+					<div class="position">
+						{% if page_obj.has_previous %}
+							<a href="{% paginate_url page_obj.previous_page_number 'page' request.GET.urlencode %}">&laquo;</a>
+							<a href="{% paginate_url 1 'page' request.GET.urlencode %}">1</a>
+						{% endif %}
+						{% if page_obj.number|add:'-3' > 0 %}
+							<span>...</span>
+						{% endif %}
+						{% if page_obj.number|add:'-2' > 0 %}
+							<a href="{% paginate_url page_obj.previous_page_number 'page' request.GET.urlencode %}">{{ page_obj.previous_page_number }}</a>
+						{% endif %}
+							<a class="active">{{ page_obj.number }}</a>
+						{% if page_obj.number|add:'1' < page_obj.paginator.num_pages %}
+							<a href="{% paginate_url page_obj.next_page_number 'page' request.GET.urlencode %}">{{ page_obj.next_page_number }}</a>
+						{% endif %}
+						{% if page_obj.number|add:'2' < page_obj.paginator.num_pages %}
+							<span>...</span>
+						{% endif %}
+						{% if page_obj.has_next %}
+							<a href="{% paginate_url page_obj.paginator.num_pages 'page' request.GET.urlencode%}">{{ page_obj.paginator.num_pages }}</a>
+							<a href="{% paginate_url page_obj.next_page_number 'page' request.GET.urlencode %}">&raquo;</a>
+						{% endif %}
+					</div>
+				</div>
+			{% endif %}
+			{% include 'footer.html' %}
+		</div>
+		<script src="{% static 'bianka_site/js/jquery.min.js' %}"></script>
+        <script src="{% static 'bianka_site/js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'bianka_site/js/main.js' %}"></script>
+    </body>
+</html>
