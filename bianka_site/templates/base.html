@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-{% load static %}
-{% load paginate_extras %}
+{% load static recaptcha3 paginate_extras %}
+{% load i18n %}
 
 <html lang="en">
     <head>
@@ -20,6 +20,8 @@
                 Title
             {% endblock %}
         </title>
+		{% recaptcha_init %}
+        {% recaptcha_ready action_name='homepage' %}
     </head>
     <body>
     <!-- content -->
@@ -34,6 +36,23 @@
 				<h2>Личный дневник и большой фотоальбом</h2><br>
 				<p>Бьянка родилась 8 ноября 2019 года в 11:55 во Вроцлаве (Польша)</p>
 			</div>
+			<li>
+				<form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+					<input name="next" type="hidden" value="{{ redirect_to }}">
+					<select name="language">
+						{% get_current_language as LANGUAGE_CODE %}
+						{% get_available_languages as LANGUAGES %}
+						{% get_language_info_list for LANGUAGES as languages %}
+						{% for language in languages %}
+							<option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+									selected{% endif %}>
+								{{ language.name_local }} ({{ language.code }})
+							</option>
+						{% endfor %}
+					</select>
+					<input type="submit" value="Go">
+				</form>
+			</li>
 		</div>
     	{% block slider %}
 		{% include 'slider.html' %}
@@ -54,8 +73,8 @@
 										#{{ category }}
 									{% endfor %})</p>
 							<details>
-								<summary>{{ post.intro_text }}</summary>
-								<p>{{post.main_text}}</p>
+								<summary>{{ post.intro_text|safe }}</summary>
+								<p>{{ post.main_text|safe }}</p>
 							</details>
 							<div class="">
 								<form action="{% url 'add_comment' post.id %}" method="post" class="">

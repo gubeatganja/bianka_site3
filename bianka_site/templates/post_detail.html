@@ -32,19 +32,19 @@
                     <label for="postcomment" class="">
                         Напиши комментарий:
                     </label>
-                    <textarea name="text" id="postcomment" cols="30" rows="1"></textarea>
+                    {{ form.text }}
                 </div>
                 <div class="">
                     <label for="commentusername" class="">
                         Имя:
                     </label>
-                    <input type="text" class="" name="name" id="commentusername">
+                    {{ form.name }}
                 </div>
                 <div class="">
                     <label for="useremail" class="">
                         "Email:
                     </label>
-                    <input type="text" class="" name="email" id="useremail">
+                    {{ form.email }}
                 </div>
                 <button type="submit" class="">
                     Отправить

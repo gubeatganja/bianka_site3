@@ -29,10 +29,16 @@ class PostView(View):
         return render(request, 'base.html', context)
 
 
-class PostDetailView(View):
-    def get(self, request, post_slug):
-        post = Post.objects.get(slug=post_slug)
-        return render(request, 'post_detail.html', {'post': post})
+class PostDetailView(DetailView):
+    model = Post
+    slug_url_kwarg = 'post_slug'
+    context_object_name = 'post'
+    template_name = 'post_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = CommentForm()
+        return context
 
 
 def is_valid(param):
@@ -82,10 +88,11 @@ class Search(ListView):
 
 
 class AddComment(View):
-
     def post(self, request, pk):
         form = CommentForm(request.POST)
+        print('request:', request.POST)
         post = Post.objects.get(id=pk)
+        print(post)
         if form.is_valid():
             form = form.save(commit=False)
             form.post = post

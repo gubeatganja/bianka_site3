@@ -1,30 +1,37 @@
+from django import forms
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 from bianka_site.models import Post, Category, Comment
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from modeltranslation.admin import TranslationAdmin
 
 
-class CategoryAdmin(admin.ModelAdmin):
+class PostAdminForm(forms.ModelForm):
+    intro_text_en = forms.CharField(widget=CKEditorUploadingWidget())
+    intro_text_pl = forms.CharField(widget=CKEditorUploadingWidget())
+    intro_text_ru = forms.CharField(widget=CKEditorUploadingWidget())
+    main_text_en = forms.CharField(widget=CKEditorUploadingWidget())
+    main_text_pl = forms.CharField(widget=CKEditorUploadingWidget())
+    main_text_ru = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Post
+        fields = '__all__'
+
+
+class CategoryAdmin(TranslationAdmin):
     prepopulated_fields = {"url": ("name",)}
 
-#
-# class PostAdminForm(forms.ModelForm):
-#     intro_text = forms.CharField(widget=CKEditorUploadingWidget())
-#     main_text = forms.CharField(widget=CKEditorUploadingWidget())
-#
-#     class Meta:
-#         model = Post
-#         fields = '__all__'
 
-
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(TranslationAdmin):
     list_display = ('publication_date', 'id', 'title', 'is_published')
     list_display_links = ('publication_date', 'id', 'title')
     list_editable = ('is_published',)
     search_fields = ('title',)
     list_filter = ('publication_date', 'is_published')
     prepopulated_fields = {"slug": ("publication_date", "title")}
-    # form = PostAdminForm
     readonly_fields = ('get_image',)
+    form = PostAdminForm
     fieldsets = (
         (None, {
             "fields": (("title", "category",),)
