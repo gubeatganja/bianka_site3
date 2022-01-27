@@ -7,10 +7,6 @@ from modeltranslation.admin import TranslationAdmin
 
 
 class PostAdminForm(forms.ModelForm):
-    intro_text_en = forms.CharField(widget=CKEditorUploadingWidget())
-    intro_text_pl = forms.CharField(widget=CKEditorUploadingWidget())
-    intro_text_ru = forms.CharField(widget=CKEditorUploadingWidget())
-    main_text_en = forms.CharField(widget=CKEditorUploadingWidget())
     main_text_pl = forms.CharField(widget=CKEditorUploadingWidget())
     main_text_ru = forms.CharField(widget=CKEditorUploadingWidget())
 

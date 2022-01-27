@@ -67,7 +67,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'bianka_site.context_processors.extras',
             ],
         },
     },
@@ -110,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -119,10 +118,18 @@ USE_I18N = True
 USE_TZ = True
 
 
+gettext = lambda s: s
 LANGUAGES = (
-    ('en', 'English'),
     ('pl', 'Poland'),
     ('ru', 'Russian'),
+)
+MODELTRANSLATION_LANGUAGES = ('pl', 'ru')
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'pl'
+
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('pl',)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
 )
 
 # Static files (CSS, JavaScript, Images)

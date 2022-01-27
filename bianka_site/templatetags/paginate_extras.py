@@ -13,4 +13,3 @@ def paginate_url(value, field_name, url_encode=None):
         url = '{}&{}'.format(url, encoded_querystring)
 
     return url
-

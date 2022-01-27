@@ -16,8 +16,8 @@
             {% endfor %})</h5>
         <img src="{{ post.main_photo.url }}" width='200' alt="" />
         <details>
-            <summary>{{post.intro_text}}</summary>
-            <p>{{post.main_text}}</p>
+            <summary>{{ post.intro_text }}</summary>
+            <p>{{ post.main_text|safe }}</p>
         </details>
     </div>
 {% endfor %}

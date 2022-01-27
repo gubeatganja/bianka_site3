@@ -1,17 +1,19 @@
-{% load static %}
+{% load static year_category i18n %}
+
 <div class="sidebar">
 	<form action="{% url 'search' %}" method="get" class="">
-		<input class="" type="search" placeholder="Введите запрос" name="search">
-		<button class="" type="submit">Поиск</button>
+		<input class="" type="search" placeholder="{% trans 'Введите запрос' %}" name="search">
+		<button class="" type="submit">{% trans "Поиск" %}</button>
 	</form>
 	<hr>
 	<form action="{% url 'filter' %}" method="get" class="">
 		<select id="agileinfo_search" name="order_by" required="">
-			<option value="newest">новые вверху</option>
-			<option value="oldest">старшие вверху</option>
+			<option value="newest">{% trans "Новые вверху" %}</option>
+			<option value="oldest">{% trans "Старшие вверху" %}</option>
 		</select>
 		<br>
 		<div class="sidebar-years-list">
+			{% get_years as years %}
 			{% for year in years %}
 				<li class="no-bullets">
 					{% if year.publication_date__year in year_query %}
@@ -24,31 +26,18 @@
 			{% endfor %}
 		</div>
 		<div class="sidebar-categories-list">
+			{% get_categories as categories %}
 			{% for category in categories %}
-				{% if category.category__name %}
-					<li class="no-bullets">
-						{% if category.category__name in category_query %}
-							<input type="checkbox" class="checked" name="category" value="{{ category.category__name }}"checked>
-						{% else %}
-							<input type="checkbox" class="checked" name="category" value="{{ category.category__name }}">
-						{% endif %}
-						<span class="span editContent">{{ category.category__name }} ({{ category.num_post }})</span>
-					</li>
-				{% endif %}
-			{% endfor %}
-			{% for category in categories %}
-				{% if not category.category__name %}
-					<li class="no-bullets">
-						{% if category.category__name in category_query %}
-							<input type="checkbox" class="checked" name="category" value="{{ category.category__name }}"checked>
-						{% else %}
-							<input type="checkbox" class="checked" name="category" value="{{ category.category__name }}">
-						{% endif %}
-						<span class="span editContent"><i>Without category</i> ({{ category.num_post }})</span>
-					</li>
-				{% endif %}
+				<li class="no-bullets">
+					{% if category.name in category_query %}
+						<input type="checkbox" class="checked" name="category" value="{{ category.name }}"checked>
+					{% else %}
+						<input type="checkbox" class="checked" name="category" value="{{ category.name }}">
+					{% endif %}
+					<span class="span editContent">{{ category.name }} ({{ category.num_post }})</span>
+				</li>
 			{% endfor %}
 		</div>
-		<button type="submit">Применить</button>
+		<button type="submit">{% trans "Применить" %}</button>
 	</form>
 </div>

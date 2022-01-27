@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator
 from django.db.models import Q, Count
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
 from .models import Post
@@ -16,6 +16,7 @@ def test(request):
 
 
 class PostView(View):
+    """List of posts"""
     model = Post
 
     def get(self, request):
@@ -30,6 +31,7 @@ class PostView(View):
 
 
 class PostDetailView(DetailView):
+    """Full description of single post"""
     model = Post
     slug_url_kwarg = 'post_slug'
     context_object_name = 'post'
@@ -41,24 +43,25 @@ class PostDetailView(DetailView):
         return context
 
 
-def is_valid(param):
-    if param != '' and param is not None:
-        return param
+def is_valid(value):
+    if value != '' and value is not None:
+        return value
 
 
 class FilterPostView(View):
     model = Post
 
     def get(self, request):
-        qs = Post.objects.all().filter(is_published=True)
+        qs = Post.objects.filter(is_published=True)
         order_by_query = request.GET.get('order_by')
         year_query = request.GET.getlist('year')
         year_query = list(map(int, year_query))
         category_query = request.GET.getlist('category')
+        print(category_query)
         if is_valid(year_query):
             qs = qs.filter(publication_date__year__in=year_query)
         if is_valid(category_query):
-            qs = qs.filter(category__name__in=category_query)
+            qs = qs.filter(category__name__in=category_query).distinct()
         if order_by_query == 'oldest':
             qs = qs.order_by('publication_date')
         number_of_posts = qs.count()
@@ -90,9 +93,7 @@ class Search(ListView):
 class AddComment(View):
     def post(self, request, pk):
         form = CommentForm(request.POST)
-        print('request:', request.POST)
         post = Post.objects.get(id=pk)
-        print(post)
         if form.is_valid():
             form = form.save(commit=False)
             form.post = post

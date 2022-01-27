@@ -17,7 +17,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.TextField('title', max_length=150)
-    category = models.ManyToManyField(Category, related_name='posts', blank=True)
+    category = models.ManyToManyField(Category, related_name='posts')
     main_photo = models.ImageField('main photo', upload_to='photos/', blank=True)
     publication_date = models.DateField('date of publication', max_length=20)
     intro_text = models.TextField('intro', max_length=2000)

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n %}
 
 {% block slider %}
 {% endblock slider %}
@@ -17,7 +17,7 @@
                     #{{ category }}
                 {% endfor %})
             </summary>
-            <p>{{ post.main_text }}</p>
+            <p>{{ post.main_text|safe }}</p>
         </details>
         <div class="">
             <hr>
@@ -30,19 +30,19 @@
             {% csrf_token %}
                 <div class="">
                     <label for="postcomment" class="">
-                        Напиши комментарий:
+                        {% trans 'Напиши комментарий:' %}
                     </label>
                     {{ form.text }}
                 </div>
                 <div class="">
                     <label for="commentusername" class="">
-                        Имя:
+                        {% trans 'Имя:' %}:
                     </label>
                     {{ form.name }}
                 </div>
                 <div class="">
                     <label for="useremail" class="">
-                        "Email:
+                        {% trans 'Email:' %}
                     </label>
                     {{ form.email }}
                 </div>

@@ -42,13 +42,21 @@ body {
 .rounded {
   border-radius: 0.25rem !important; }
 
+.sidebar-years-list {
+  margin-top: 10px;
+}
+
+.sidebar-categories-list {
+  margin: 10px 0;
+}
+
 .post {
-    margin: 15px 0;
-    border-style: solid;
-    border-width: 1px;
-    border-color: lightgrey;
-    padding: 15px 20px;
-    border-radius: 0.4rem;
+  margin: 15px 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  padding: 15px 20px;
+  border-radius: 0.4rem;
 }
 
 .date-text {
@@ -61,11 +69,6 @@ body {
   margin-left: 10px;
 }
 
-.sidebar-years-list {
-  margin-top: 10px;
-}
-
-.sidebar-categories-list {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.add-comment {
+  margin: 20px 0 0 0;
 }
