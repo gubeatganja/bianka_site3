@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block found %}
+    <p>{% trans 'Найдено записей' %}: {{ number_of_posts }}
+    {% if year.publication_date__year in year_query %}
+        <span>{{ year.publication_date__year }}</span>
+    {% endif %}
+    </p>
+{% endblock %}

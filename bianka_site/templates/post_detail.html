@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% load static recaptcha3 paginate_extras i18n %}
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width" />
+        <title>Bianka's blog</title>
+        <meta name="description" content="Bianka Chumak Blog"/>
+        <meta name="keywords" content="Bianka Chumak Blog"/>
+        <link rel="stylesheet" href="{% static 'bianka_site/css/components.css' %}">
+        <link rel="stylesheet" href="{% static 'bianka_site/css/responsee.css' %}">
+        <link rel="stylesheet" href="{% static 'bianka_site/css/template-style.css' %}">
+        <link rel="stylesheet" href="{% static 'bianka_site/css/all.min.css' %}">
+        <link id="theme-style" rel="stylesheet" href="bianka_site/css/template-style.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="{% static 'bianka_site/js/jquery-1.8.3.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'bianka_site/js/jquery-ui.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'bianka_site/js/modernizr.js' %}"></script>
+        <script type="text/javascript" src="{% static 'bianka_site/js/responsee.js' %}"></script>
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+       {% recaptcha_init %}
+       {% recaptcha_ready action_name='homepage' %}
+    </head>
+    <body class="size-1140">
+        <header class="margin-bottom">
+            <div class="line">
+                <nav>
+                    <div class="top-nav">
+                        <p class="nav-text"></p>
+                        <a class="logo" href="{% url 'home' %}">
+                            <span>Bianka</span>Chumak<span>Blog</span>
+                        </a>
+                        <ul class="top-ul right">
+                            <li>
+                                <a href="{% url 'home' %}">{% trans 'Блог' %}</a>
+                            </li>
+                            <li>
+                                <a href="about.html">{% trans 'Обо мне' %}</a>
+                            </li>
+                            <li>
+                                <a href="archive.html">{% trans 'Архив' %}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- MAIN SECTION -->
+        <section id="article-section" class="line">
+            <div class="margin">
+            <!-- ARTICLES -->             
+                <div class="s-12 l-9">
+                    <!-- ARTICLE 1 -->
+                    <article class="margin-bottom">
+                        <div class="post-1 line">
+                            <div class="s-12 l-11 post-image">
+                                <img src="{{ post.main_photo.url }}" alt="main photo">
+                            </div>
+                            <div class="s-12 l-1 post-date detail-view">
+                                <p class="date">{{ post.publication_date|date:"d"}}</p>
+                                <p class="month">{{ post.publication_date|date:"b"}}</p>
+                                <p class="year">{{ post.publication_date|date:"Y"}}</p>
+                            </div>
+                        </div>
+                        <div class="post-text">
+                            <h1>{{ post.title }}</h1>
+                            <p>{{ post.intro_text }}</p><br>
+                            <p>{{ post.main_text|safe }}</p><br>
+                            <i class="fas fa-2x fa-heart"></i>
+                            <form action="{% url 'add_like' %}" method="post" name="like">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ post.id }}" name="post">
+                                <input id="like" type="radio" value="1" name="add_like">
+                                <button type="submit" class="">{% trans "Отправить" %}</button>
+                            </form>
+                            <p class="author">{% trans 'Комментарии' %}
+                                {% if post.comments.all %}
+                                    ({{ post.comments.all.count }}):
+                                {% endif %}
+                            </p><br>
+                            {% for comment in post.comments.all %}
+                            <p><i>{{ comment.name }}: </i>{{ comment.text }}</p>
+                            {% empty %}
+                            <p><i>{% trans 'Здесь пока никто ничего не написал' %}: </i>
+                            {% endfor %}
+                            <div>
+                                <form action="{% url 'add_comment' post.id %}" method="post">
+                                    {% csrf_token %}
+                                    <p class="author">
+                                    {% trans 'Напиши комментарий' %}: <input type='text' name='{{ form.text }}'><br>
+                                    {% trans 'Имя' %}: <input type='text' name='{{ form.name }}'><br>
+                                    Email: <input type='text' name='{{ form.email }}'><br>
+                                    {{ form.captcha }}
+                                    <button type="submit" class="">{% trans "Отправить" %}</button>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <!-- SIDEBAR -->
+                <div class="s-12 l-3">
+                    <aside>
+                        <!-- LATEST POSTS -->
+                        <div class="aside-block margin-bottom">
+                            <ul id="color-options">
+                                <li class="active"><a data-style="{% static 'bianka_site/css/template-style.css' %}" href="#">red</a></li>
+                                <br>
+                                <li><a data-style="{% static 'bianka_site/css/template-style-2.css' %}" href="#">green</a></li>
+                                <br>
+                                <li><a data-style="{% static 'bianka_site/css/template-style-3.css' %}" href="#">blue</a></li>
+                                <br>
+                            </ul>
+                            <h3>{% trans 'Предыдущие посты' %}:</h3>
+                            {% for item in posts %}
+                            <a class="latest-posts" href="{{ post.get_absolute_url }}">
+                                {% if item.main_photo %}
+                                <img src="{{ item.main_photo.url }}" alt="">
+                                {% endif %}
+                                <h5>{{ item.title }}</h5>
+                                <p>{{ item.intro_text|slice:":50" }}...</p>
+                                <p style="color: black;">{{ item.publication_date }}</p>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        <!-- FOOTER -->
+        <div class="line">
+            <footer>
+                <div class="s-12 l-8">
+                    <p>2019 BiankaJournal</p>
+                </div>
+                <div class="s-12 l-4">
+                    <a class="right" href="https://github.com/gubeatganja/bianka_site3" title="Responsive framework">
+                        Coding by Vladyslav Chumak
+                    </a>
+                </div>
+            </footer>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $('#config-trigger').click(function(e){
+                    e.preventDefault();
+                    //$("#config-panel").toggleClass('config-panel-open');
+                });
+
+                $('#color-options a').on('click', function(e) {
+                    var $styleSheet = $(this).attr('data-style');
+
+                    $('#theme-style').attr('href', $styleSheet);
+
+                    var $listItem = $(this).closest('li');
+                    $listItem.addClass('active');
+                    $listItem.siblings().removeClass('active');
+
+                    e.preventDefault();
+                });
+            });
+        </script>
+    </body>
+</html>

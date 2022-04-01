@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a6ec3b55-4afb-448b-b996-82ee0fb22311" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bianka_site/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bianka_site/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/css/owl.carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/css/owl.theme.default.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/css/slider.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/css/test_.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/IMG_0084_800.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/IMG_0222_800.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/avatar01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/avatar02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../bianka_site/static/bianka_site/img/avatar02.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/avatar03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../bianka_site/static/bianka_site/img/avatar03.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/example.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/slider/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/slider/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/slider/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/slider/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/slider/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/images/slider/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/js/owl.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/static/bianka_site/js/popper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/templates/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/templates/filtered.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/templates/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/templates/post_detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/templates/search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bianka_site/templates/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/templates/slider.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/templates/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bianka_site/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bianka_site/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="24YeZMriVG4bDjb3mhoTdAzna1I" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a6ec3b55-4afb-448b-b996-82ee0fb22311" name="Default Changelist" comment="" />
+      <created>1643812001662</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1643812001662</updated>
+    </task>
+    <servers />
+  </component>
+</project>
