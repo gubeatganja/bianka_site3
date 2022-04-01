@@ -1,43 +1,51 @@
 {% load static year_category i18n %}
-
-<div class="sidebar">
-	<form action="{% url 'search' %}" method="get" class="">
-		<input class="" type="search" placeholder="{% trans 'Введите запрос' %}" name="search">
-		<button class="" type="submit">{% trans "Поиск" %}</button>
-	</form>
-	<hr>
-	<form action="{% url 'filter' %}" method="get" class="">
-		<select id="agileinfo_search" name="order_by" required="">
-			<option value="newest">{% trans "Новые вверху" %}</option>
-			<option value="oldest">{% trans "Старшие вверху" %}</option>
-		</select>
-		<br>
-		<div class="sidebar-years-list">
-			{% get_years as years %}
-			{% for year in years %}
-				<li class="no-bullets">
-					{% if year.publication_date__year in year_query %}
-						<input type="checkbox" class="checked" name="year" value="{{ year.publication_date__year }}" checked>
-					{% else %}
-						<input type="checkbox" class="checked" name="year" value="{{ year.publication_date__year }}">
-					{% endif %}
-						<span class="span editContent">{{ year.publication_date__year }} ({{ year.num_post }})</span>
-				</li>
-			{% endfor %}
+<div class="s-12 l-3">
+	<aside>
+		<!-- NEWS 1 -->
+		<div class="sidebar-avatar" style="background-image: url({% static 'bianka_site/images/avatar03.jpg' %})">
 		</div>
-		<div class="sidebar-categories-list">
-			{% get_categories as categories %}
-			{% for category in categories %}
-				<li class="no-bullets">
-					{% if category.name in category_query %}
-						<input type="checkbox" class="checked" name="category" value="{{ category.name }}"checked>
-					{% else %}
-						<input type="checkbox" class="checked" name="category" value="{{ category.name }}">
-					{% endif %}
-					<span class="span editContent">{{ category.name }} ({{ category.num_post }})</span>
-				</li>
-			{% endfor %}
+		<div class="aside-block margin-bottom">
+			<form action="{% url 'search' %}" method="get" class="">
+				<input class="" type="search" placeholder="{% trans 'Введите запрос' %}" name="search">
+				<button class="" type="submit">{% trans "Поиск" %}</button>
+			</form><br>
+			<hr><br>
+			<form action="{% url 'filter' %}" method="get" class="">
+				<select id="agileinfo_search" name="order_by" required="">
+					<option value="newest">{% trans "Новые вверху" %}</option>
+					<option value="oldest">{% trans "Старшие вверху" %}</option>
+				</select>
+				<br><br>
+				<div class="">
+					{% get_years as years %}
+					{% for year in years %}
+						<li class="">
+							{% if year.publication_date__year in year_query %}
+								<input type="checkbox" class="checked" name="year" value="{{ year.publication_date__year }}" checked>
+							{% else %}
+								<input type="checkbox" class="checked" name="year" value="{{ year.publication_date__year }}">
+							{% endif %}
+							<span class="">{{ year.publication_date__year }} ({{ year.num_post }})</span>
+						</li>
+					{% endfor %}
+				</div>
+				<br>
+				<div class="">
+					{% get_categories as categories %}
+					{% for category in categories %}
+						<li class="no-bullets">
+							{% if category.name in category_query %}
+								<input type="checkbox" class="checked" name="category" value="{{ category.name }}" checked>
+							{% else %}
+								<input type="checkbox" class="checked" name="category" value="{{ category.name }}">
+							{% endif %}
+							<span class="">{{ category.name }} ({{ category.num_post }})</span>
+						</li>
+					{% endfor %}
+				</div>
+				<br>
+				<button type="submit" style="float: right;">{% trans "Применить" %}</button>
+			</form>
 		</div>
-		<button type="submit">{% trans "Применить" %}</button>
-	</form>
+	</aside>
 </div>

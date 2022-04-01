@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',
-    'snowpenguin.django.recaptcha3',
     'bianka_site',
+    'snowpenguin.django.recaptcha3',
+    'fontawesomefree',
 ]
 
 MIDDLEWARE = [

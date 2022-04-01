@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from bianka_site.models import Post, Category, Comment
+from bianka_site.models import Post, Category, Comment, Like
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from modeltranslation.admin import TranslationAdmin
 
@@ -58,6 +58,7 @@ class PostAdmin(TranslationAdmin):
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Comment)
+admin.site.register(Like)
 
 admin.site.site_title = 'Bianka'
 admin.site.site_header = 'Bianka'

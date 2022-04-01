@@ -1,5 +1,5 @@
 from django import forms
-from .models import Comment
+from .models import Comment, Like
 from snowpenguin.django.recaptcha3.fields import ReCaptchaField
 
 
@@ -9,8 +9,11 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ("text", "name", "email", "captcha")
-        widgets = {
-            "text": forms.Textarea(attrs={"class": "form-control border"}),
-            "name": forms.TextInput(attrs={"class": "form-control border"}),
-            "email": forms.EmailInput(attrs={"class": "form-control border"}),
-        }
+
+
+class LikeForm(forms.ModelForm):
+    like = forms.BooleanField(widget=forms.RadioSelect())
+
+    class Meta:
+        model = Like
+        fields = ("like",)
