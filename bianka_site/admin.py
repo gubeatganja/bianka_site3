@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from bianka_site.models import Post, Category, Comment, Like
+from .models import Post, Category, Comment, Like
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from modeltranslation.admin import TranslationAdmin
 

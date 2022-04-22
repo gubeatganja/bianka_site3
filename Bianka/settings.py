@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^0l4_*e5(2w0*(3lq)l&-wx9604j*1uika*r-e2$ta3_hnu7l7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bianka-blog.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -220,3 +220,4 @@ RECAPTCHA_PUBLIC_KEY = '6LcSDvgdAAAAAKJelx9s8IxVP3k5ppxljWwJ3Gkn'
 RECAPTCHA_PRIVATE_KEY = '6LcSDvgdAAAAAL0jqzX9FsiM0tNzib8EPe6PtgNH'
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
+
