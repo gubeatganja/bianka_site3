@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.db.models import Q, Count
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
@@ -62,8 +62,6 @@ class FilterPostView(View):
         year_query = request.GET.getlist('year')
         year_query = list(map(int, year_query))
         category_query = request.GET.getlist('category')
-        print(year_query)
-        print(category_query)
         if is_valid(year_query):
             qs = qs.filter(publication_date__year__in=year_query)
         if is_valid(category_query):
@@ -108,7 +106,6 @@ class FilterCategoryView(ListView):
 class AddComment(View):
     def post(self, request, pk):
         form = CommentForm(request.POST)
-        print(request.POST)
         post = Post.objects.get(id=pk)
         if form.is_valid():
             form = form.save(commit=False)

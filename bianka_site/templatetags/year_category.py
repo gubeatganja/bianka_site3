@@ -7,15 +7,12 @@ register = template.Library()
 
 @register.simple_tag
 def get_years():
-    print(Post.objects.filter(is_published=True).values('publication_date__year').annotate(num_post=Count('id')) \
-        .distinct().order_by())
     return Post.objects.filter(is_published=True).values('publication_date__year').annotate(num_post=Count('id')) \
         .distinct().order_by()
 
 
 @register.simple_tag
 def get_categories():
-    print(Category.objects.filter(posts__is_published=True).annotate(num_post=Count('id')).distinct().order_by('-name'))
     return Category.objects.filter(posts__is_published=True).annotate(num_post=Count('id')).distinct().order_by('-name')
 
 
