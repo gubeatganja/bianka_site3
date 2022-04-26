@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 from django.utils.translation import gettext
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -223,3 +224,7 @@ RECAPTCHA_SCORE_THRESHOLD = 0.5
 
 # Simplified static file serving.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
