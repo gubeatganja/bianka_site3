@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^0l4_*e5(2w0*(3lq)l&-wx9604j*1uika*r-e2$ta3_hnu7l7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['bianka-blog-2.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['bianka-site.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
