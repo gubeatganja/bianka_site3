@@ -1,1 +1,1 @@
-web: gunicorn Bianka.wsgi --log-file--
+web: gunicorn Bianka.wsgi --log-file -
