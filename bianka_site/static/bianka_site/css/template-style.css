@@ -1,7 +1,8 @@
 body {
 	background: none repeat scroll 0 0 #0b192f;
 	color: #fff;
-	font-family: roboto;
+	font-family: 'Raleway', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 }
 nav {
