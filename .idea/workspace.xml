@@ -3,6 +3,45 @@
   <component name="ChangeListManager">
     <list default="true" id="4753aecb-de9f-427c-b2f2-7c6c4bc97f96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bianka/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bianka/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/banner-horizontal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/banner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/news1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/news2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/post1-big.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/post1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/post2-big.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/post2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/post3-big.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/post3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/post4-big.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/static/bianka_site/img/post4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bianka_site/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/bianka_site/templates/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/banner-horizontal.688da3907fe0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/banner-horizontal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/banner.4acdc2cd7a2e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/banner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/news1.b8a5c6a70f5a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/news1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/news2.6ffbb8452515.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/news2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post1-big.c90b206c08a5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post1-big.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post1.599467fd12d4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post2-big.0b9db8ed7e0c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post2-big.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post2.6998bd73ab92.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post3-big.68b6e8f83cc8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post3-big.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post3.cffdf9b38372.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post4-big.ec7a9a18450c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post4-big.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post4.76fe392bd529.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/bianka_site/img/post4.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

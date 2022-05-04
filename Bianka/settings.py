@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^0l4_*e5(2w0*(3lq)l&-wx9604j*1uika*r-e2$ta3_hnu7l7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['bianka-site.herokuapp.com', 'bianka.blog', 'www.bianka.blog','127.0.0.1']
+ALLOWED_HOSTS = ['bianka-site.herokuapp.com', 'bianka.blog', 'www.bianka.blog', '127.0.0.1']
 
 # Application definition
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'bianka_site',
     'snowpenguin.django.recaptcha3',
     'fontawesomefree',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -228,3 +229,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
+
+
+AWS_ACCESS_KEY_ID = 'AKIAYALTTKWFJEQCFMHX'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'biankablogbucket'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
