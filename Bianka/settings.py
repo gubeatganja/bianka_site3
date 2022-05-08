@@ -121,7 +121,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 gettext = lambda s: s
 LANGUAGES = (
     ('pl', 'Poland'),
@@ -135,17 +134,6 @@ MODELTRANSLATION_FALLBACK_LANGUAGES = ('pl',)
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = []
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
@@ -222,19 +210,33 @@ RECAPTCHA_PRIVATE_KEY = '6LcSDvgdAAAAAL0jqzX9FsiM0tNzib8EPe6PtgNH'
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
 
-
 # Simplified static file serving.
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
-
-AWS_ACCESS_KEY_ID = 'AKIAYALTTKWFJEQCFMHX'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'biankablogbucket'
+AWS_ACCESS_KEY_ID = 'AKIAYALTTKWFF7SFEQKW'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'biankablog-bucket'
+AWS_URL = 'https://biankablog-bucket.s3.amazonaws.com/'
 AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
+AWS_DEFAULT_ACL = 'public-read'
+AWS_QUERYSTRING_AUTH = False
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_URL = '/static/'
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -102,7 +102,6 @@ class FilterCategoryView(ListView):
         qs = Post.objects.filter(is_published=True).filter(category__name__in=category_query)
 
 
-
 class AddComment(View):
     def post(self, request, pk):
         form = CommentForm(request.POST)
