@@ -28,7 +28,7 @@ msgstr "Blog"
 #: .\bianka_site\templates\base.html:41
 #: .\bianka_site\templates\post_detail.html:39
 msgid "Обо мне"
-msgstr "O mnie"
+msgstr "Ja"
 
 #: .\bianka_site\templates\base.html:44
 #: .\bianka_site\templates\post_detail.html:42
